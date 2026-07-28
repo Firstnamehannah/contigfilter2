@@ -30,7 +30,7 @@ This sample module contains one small method that filters contigs.
     ######################################### noqa
     VERSION = "0.0.1"
     GIT_URL = "https://github.com/Firstnamehannah/contigfilter2.git"
-    GIT_COMMIT_HASH = "03b42a2ccb9bf98c0bf93bab9b32afae283bae40"
+    GIT_COMMIT_HASH = "7452ae3881c46a7e8c8d6e69baf5fe430b3b74eb"
 
     #BEGIN_CLASS_HEADER
     # Class variables and functions can be defined in this block
@@ -114,7 +114,7 @@ This sample module contains one small method that filters contigs.
         n_remaining = 0
         for record in SeqIO.parse(fasta_file['path'], 'fasta'):
             n_total += 1
-            if len(record.seq) >= min_length and len(record.seq) <= max_length:
+            if len(record.seq) >= min_length:
                 good_contigs.append(record)
                 n_remaining += 1
 

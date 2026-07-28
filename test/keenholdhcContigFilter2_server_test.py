@@ -81,13 +81,14 @@ class keenholdhcContigFilter2Test(unittest.TestCase):
         ret = self.serviceImpl.run_keenholdhcContigFilter2(self.ctx,
                                                 {'workspace_name': self.wsName,
                                                  'assembly_input_ref': self.assembly_ref,
-                                                 'min_length': 10
+                                                 'min_length': 10,
+                                                 'max_length': 10
                                                  })
 
         # Validate the returned data
         self.assertEqual(ret[0]['n_initial_contigs'], 3)
-        self.assertEqual(ret[0]['n_contigs_removed'], 1)
-        self.assertEqual(ret[0]['n_contigs_remaining'], 2)
+        self.assertEqual(ret[0]['n_contigs_removed'], 2)
+        self.assertEqual(ret[0]['n_contigs_remaining'], 1)
 
     def test_run_keenholdhcContigFilter2_min_len_negative(self):
         with self.assertRaisesRegex(ValueError, 'min_length parameter cannot be negative'):
@@ -103,3 +104,18 @@ class keenholdhcContigFilter2Test(unittest.TestCase):
                                                'assembly_input_ref': '1/fake/3',
                                                'min_length': 'ten'})
 
+    def test_run_keenholdhcContigFilter2_max_len_negative(self):
+        with self.assertRaisesRegex(ValueError, 'max_length parameter cannot be negative'):
+            self.serviceImpl.run_keenholdhcContigFilter2(self.ctx,
+                                              {'workspace_name': self.wsName,
+                                               'assembly_input_ref': '1/fake/3',
+                                               'min_length': '10',
+                                               'max_length': '-10'})                                              
+ 
+    def test_run_keenholdhcContigFilter2_max_len_parse(self):
+        with self.assertRaisesRegex(ValueError, 'Cannot parse integer from max_length parameter'):
+            self.serviceImpl.run_keenholdhcContigFilter2(self.ctx,
+                                              {'workspace_name': self.wsName,
+                                               'assembly_input_ref': '1/fake/3',
+                                               'min_length': '10',
+                                               'max_length': 'ten'})

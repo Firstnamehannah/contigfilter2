@@ -32,6 +32,18 @@
                 "validate_as": "int",
                 "min_integer" : 0
             }
+        },
+        {
+            "id": "max_length",
+            "optional": true,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "" ],
+            "field_type": "text",
+            "text_options": {
+                "validate_as": "int",
+                "min_integer" : 0
+            }
         }
     ],
     "behavior": {
@@ -53,6 +65,9 @@
                 },{
                     "input_parameter": "min_length",
                     "target_property": "min_length"
+                },{
+                    "input_parameter": "max_length",
+                    "target_property": "max_length"
                 }
             ],
             "output_mapping": [
