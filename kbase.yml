@@ -2,7 +2,7 @@ module-name:
     keenholdhcContigFilter2
 
 module-description:
-    A KBase module
+    A KBase module to show min and max length filtering of contigs in an assembly. This is a simple method designed to illustrate the KBase SDK.
 
 service-language:
     python

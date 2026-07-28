@@ -342,6 +342,10 @@ class Application(object):
                              name='keenholdhcContigFilter2.run_keenholdhcContigFilter2',
                              types=[dict])
         self.method_authentication['keenholdhcContigFilter2.run_keenholdhcContigFilter2'] = 'required'  # noqa
+        self.rpc_service.add(impl_keenholdhcContigFilter2.run_keenholdhcContigFilter2_min,
+                             name='keenholdhcContigFilter2.run_keenholdhcContigFilter2_min',
+                             types=[dict])
+        self.method_authentication['keenholdhcContigFilter2.run_keenholdhcContigFilter2_min'] = 'required'  # noqa
         self.rpc_service.add(impl_keenholdhcContigFilter2.status,
                              name='keenholdhcContigFilter2.status',
                              types=[dict])

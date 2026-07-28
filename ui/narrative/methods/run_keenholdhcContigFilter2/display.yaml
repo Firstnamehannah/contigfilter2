@@ -37,5 +37,10 @@ parameters :
             Min Length Threshold
         short-hint : |
             All contigs below this length will be removed
+    max_length :
+        ui-name : |
+            Max Length Threshold
+        short-hint : |
+            All contigs above this length will be removed
 description : |
     <p>This is a simple method designed to illustrate the KBase SDK.</p>
